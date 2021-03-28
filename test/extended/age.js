@@ -16,4 +16,14 @@ describe('Age field test', function () {
         expect(placeholder).toEqual(exp.agePlaceholder);
     });
 
+    describe('Positive Cases', function () {
+
+        it('TC-065 Age doesn\'t accept letters' , function () {
+            $(sel.age).setValue('abc');
+            let error = $(sel.errorMessage).isDisplayed();
+            expect(error).toEqual(true);
+        });
+
+    });
+
 });
