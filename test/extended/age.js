@@ -1,12 +1,22 @@
+import exp from '../../data/expected.json';
 import sel from '../../data/selectors';
 
-describe('Age Field', function () {
+describe('Age field test', function () {
+
+    before('Open App', function () {
+        browser.url('');
+    });
+
+    beforeEach(() => {
+        browser.refresh();
+    });
+
+    it('TC-030 Age Field Placeholder = "Hero \'s age" ', function () {
+        let placeholder = $(sel.age).getAttribute('placeholder');
+        expect(placeholder).toEqual(exp.agePlaceholder);
+    });
 
     describe('Positive Cases', function () {
-
-        before('Open App', function () {
-            browser.url('');
-        });
 
         it('TC-065 Age doesn\'t accept letters' , function () {
             $(sel.age).setValue('abc');
@@ -15,4 +25,5 @@ describe('Age Field', function () {
         });
 
     });
+
 });
